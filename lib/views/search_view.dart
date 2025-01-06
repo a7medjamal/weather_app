@@ -9,11 +9,14 @@ class SearchView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Search a city'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 14),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Center(
           child: TextField(
-            decoration: InputDecoration(
+            onSubmitted: (value) {
+              print(value);
+            },
+            decoration: const InputDecoration(
               labelText: 'City name',
               border: OutlineInputBorder(
                 borderSide: BorderSide(

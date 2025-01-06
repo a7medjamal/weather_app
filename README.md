@@ -1,6 +1,8 @@
 # weather_app
 
-A new Flutter project.
+A simple new Flutter project to know the weather status.
+
+Got my API from [WeatherAPI](https://www.weatherapi.com/).
 
 ## Getting Started
 
