@@ -18,8 +18,7 @@ class SearchView extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async {
-              WeatherModel weatherModel = await WeatherService(Dio())
-                  .getCurrentWeather(cityName: value);
+              
             },
             decoration: const InputDecoration(
               labelText: 'City name',
