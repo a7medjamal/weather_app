@@ -1,5 +1,4 @@
-import 'dart:math';
-
+// ignore_for_file: use_build_context_synchronously
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/weather_model.dart';
@@ -19,8 +18,8 @@ class SearchView extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async {
-              WeatherModel weatherModel = await WeatherService(Dio()).getCurrentWeather(cityName: value);
-              print(weatherModel.cityName);
+              WeatherModel weatherModel = await WeatherService(Dio())
+                  .getCurrentWeather(cityName: value);
             },
             decoration: const InputDecoration(
               labelText: 'City name',
