@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather_app/views/home_view.dart';
 
 Future<void> main() async {
@@ -12,8 +14,11 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeView(),
+    return BlocProvider(
+      create: (context) => GetWeatherCubit(),
+      child: const MaterialApp(
+        home: HomeView(),
+      ),
     );
   }
 }
