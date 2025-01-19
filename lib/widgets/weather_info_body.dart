@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
@@ -20,7 +21,7 @@ class WeatherInfoBody extends StatelessWidget {
             ),
           ),
           Text(
-            weatherModel.date,
+            'updated at ${weatherModel.date.hour}:${weatherModel.date.minute}',
             style: const TextStyle(
               fontSize: 24,
             ),
@@ -31,10 +32,10 @@ class WeatherInfoBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ClipRRect(
-                child: Image.network(
-                  weatherModel.image!,
-                ),
+              Image.network(
+                weatherModel.image!,
+                width: 100,
+                height: 100,
               ),
               Text(
                 weatherModel.temp.toString(),
@@ -46,13 +47,13 @@ class WeatherInfoBody extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'Maxtemp: ${weatherModel.maxTemp}',
+                    'Maxtemp: ${weatherModel.maxTemp.round()}',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   Text(
-                    'Mintemp: ${weatherModel.minTemp}',
+                    'Mintemp: ${weatherModel.minTemp.round()}',
                     style: TextStyle(
                       fontSize: 16,
                     ),
