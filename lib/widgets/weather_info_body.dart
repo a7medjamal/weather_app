@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 
 class WeatherInfoBody extends StatelessWidget {
   const WeatherInfoBody({super.key});
   @override
   Widget build(BuildContext context) {
-    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -20,7 +21,7 @@ class WeatherInfoBody extends StatelessWidget {
             ),
           ),
           Text(
-            'updated at ${weatherModel.date.hour}:${weatherModel.date.minute}',
+            'updated at ${DateFormat('HH:mm').format(weatherModel.date)}',
             style: const TextStyle(
               fontSize: 24,
             ),
